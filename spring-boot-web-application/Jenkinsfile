@@ -8,13 +8,13 @@ pipeline {
                 echo "Maven Clean Completed"
             }
         }
-stage ('test'){
-steps{
-    echo "Maven Test Started"
-    bat 'mvn -B test verify'
-    echo "Maven test Completed"
-    }
-  }
+//stage ('test'){
+//steps{
+  //  echo "Maven Test Started"
+  //  bat 'mvn -B test verify'
+  //  echo "Maven test Completed"
+  //  }
+ // }
         stage ('build'){
         steps{
             echo "Maven package Started"
@@ -27,7 +27,7 @@ steps{
          stage ('deploy'){
         steps{
             echo "Maven deploy Started"
-                bat 'copy target\\*.jar C:\\Installables\\Tomcat8\\apache-tomcat-8.5.41\\webapps\\'
+                bat 'java -jar student-services-security-0.0.1-SNAPSHOT.jar'
            echo "Maven deploy Completed"
             
             }
