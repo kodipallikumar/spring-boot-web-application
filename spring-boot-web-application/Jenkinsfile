@@ -8,14 +8,14 @@ pipeline {
                 echo "Maven Clean Completed"
             }
         }
-//stage ('test'){
-//steps{
-  //  echo "Maven Test Started"
-  //  bat 'mvn -B test verify'
-  //  echo "Maven test Completed"
-  //  }
- // }
-        stage ('build'){
+stage ('test'){
+    steps{
+   echo "Maven Test Started"
+    bat 'mvn -B test verify'
+    echo "Maven test Completed"
+    }
+  }
+        stage ('Package'){
         steps{
             echo "Maven package Started"
                 bat 'mvn -B package verify'
